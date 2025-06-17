@@ -230,7 +230,7 @@ h6 {
     background-color: #2F2F2F;
     color: #ffffff;
     text-decoration: none;
-}
+    }
 
 .list .fas {
     color: #3ED8E0;
@@ -408,7 +408,7 @@ input[type="checkbox"] {
 .my-mfp-slide-bottom.mfp-removing.mfp-bg {
     opacity: 0;
 }
-/* end of fade-move animation for details lightbox - magnific popup */
+/* end of fade-move animation forlightbox - magnific popup */
 
 /**********************/
 /*     Navigation     */
@@ -598,9 +598,14 @@ input[type="checkbox"] {
     margin-bottom: 1.5rem;
 }
 
+.cards-1 .card-image.image2 img {
+    width: 200px;
+    height: 100px;
+}
+
 .cards-1 .card-image img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     margin-right: auto;
     margin-left: auto;
 }
