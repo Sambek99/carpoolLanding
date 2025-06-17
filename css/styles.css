@@ -286,6 +286,7 @@ h6 {
     line-height: 1.875rem;
     transition: all 0.2s;
     -webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
+    appearance: none;
 }
 
 .form-control-select {
@@ -474,7 +475,7 @@ input[type="checkbox"] {
     padding-bottom: 0.625rem;
     color: #7D7D7D;
     text-decoration: none;
-    line-height:
+    
     line-height: 0.875rem;
     transition: all 0.2s ease;
 }
