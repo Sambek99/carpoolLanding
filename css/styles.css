@@ -19,25 +19,24 @@ Table Of Contents:
 
 /*****************************************
 Colors:
-- Backgrounds - light gray #f1f9fc
-- Buttons, icons - purple #594cda
-- Buttons, icons - red #eb427e
-- Headings text - black #252c38
-- Body text - dark gray #6b747b
+- Backgrounds - light gray #E0FBFC
+- Buttons, icons - purple #3ED8E0
+- Buttons, icons - red #086972
+- Headings text - black #2F2F2F
+- Body text - dark gray #7D7D7D
 ******************************************/
 
 /**************************/
 /*     General Styles     */
 /**************************/
-
 body,
 p {
-    color: #6b747b;
+    color: #7D7D7D;
     font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
 h1 {
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 700;
     font-size: 2.5rem;
     line-height: 3.125rem;
@@ -45,7 +44,7 @@ h1 {
 }
 
 h2 {
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 700;
     font-size: 2.125rem;
     line-height: 2.625rem;
@@ -53,7 +52,7 @@ h2 {
 }
 
 h3 {
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 700;
     font-size: 1.75rem;
     line-height: 2.25rem;
@@ -61,7 +60,7 @@ h3 {
 }
 
 h4 {
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -69,14 +68,14 @@ h4 {
 }
 
 h5 {
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 700;
     font-size: 1.25rem;
     line-height: 1.625rem;
 }
 
 h6 {
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.375rem;
@@ -98,7 +97,7 @@ h6 {
 }
 
 .bg-gray {
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
 }
 
 .container {
@@ -109,9 +108,9 @@ h6 {
 .btn-solid-reg {
     display: inline-block;
     padding: 1.375rem 2.25rem 1.375rem 2.25rem;
-    border: 1px solid #594cda;
+    border: 1px solid #3ED8E0;
     border-radius: 32px;
-    background-color: #594cda;
+    background-color: #3ED8E0;
     color: #ffffff;
     font-weight: 600;
     font-size: 0.875rem;
@@ -121,18 +120,18 @@ h6 {
 }
 
 .btn-solid-reg:hover {
-    border: 1px solid #594cda;
+    border: 1px solid #3ED8E0;
     background-color: transparent;
-    color: #594cda; /* needs to stay here because of the color property of a tag */
+    color: #3ED8E0; /* needs to stay here because of the color property of a tag */
     text-decoration: none;
 }
 
 .btn-solid-lg {
     display: inline-block;
     padding: 1.625rem 2.75rem 1.625rem 2.75rem;
-    border: 1px solid #594cda;
+    border: 1px solid #3ED8E0;
     border-radius: 32px;
-    background-color: #594cda;
+    background-color: #3ED8E0;
     color: #ffffff;
     font-weight: 600;
     font-size: 0.875rem;
@@ -145,9 +144,9 @@ h6 {
 }
 
 .btn-solid-lg:hover {
-    border: 1px solid #594cda;
+    border: 1px solid #3ED8E0;
     background-color: transparent;
-    color: #594cda; /* needs to stay here because of the color property of a tag */
+    color: #3ED8E0; /* needs to stay here because of the color property of a tag */
     text-decoration: none;
 }
 
@@ -163,23 +162,23 @@ h6 {
 }
 
 .btn-solid-lg.secondary {
-    border: 1px solid #eb427e;
-    background-color: #eb427e;
+    border: 1px solid #086972;
+    background-color: #086972;
 }
 
 .btn-solid-lg.secondary:hover {
-    border: 1px solid #eb427e;
+    border: 1px solid #086972;
     background: transparent;
-    color: #eb427e; /* needs to stay here because of the color property of a tag */
+    color: #086972; /* needs to stay here because of the color property of a tag */
 }
 
 .btn-outline-reg {
     display: inline-block;
     padding: 1.375rem 2.25rem 1.375rem 2.25rem;
-    border: 1px solid #252c38;
+    border: 1px solid #2F2F2F;
     border-radius: 32px;
     background-color: transparent;
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 0;
@@ -188,7 +187,7 @@ h6 {
 }
 
 .btn-outline-reg:hover {
-    background-color: #252c38;
+    background-color: #2F2F2F;
     color: #ffffff;
     text-decoration: none;
 }
@@ -196,10 +195,10 @@ h6 {
 .btn-outline-lg {
     display: inline-block;
     padding: 1.625rem 2.75rem 1.625rem 2.75rem;
-    border: 1px solid #252c38;
+    border: 1px solid #2F2F2F;
     border-radius: 32px;
     background-color: transparent;
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 0;
@@ -208,7 +207,7 @@ h6 {
 }
 
 .btn-outline-lg:hover {
-    background-color: #252c38;
+    background-color: #2F2F2F;
     color: #ffffff;
     text-decoration: none;
 }
@@ -216,10 +215,10 @@ h6 {
 .btn-outline-sm {
     display: inline-block;
     padding: 1rem 1.5rem 1rem 1.5rem;
-    border: 1px solid #252c38;
+    border: 1px solid #2F2F2F;
     border-radius: 32px;
     background-color: transparent;
-    color: #252c38;
+    color: #2F2F2F;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 0;
@@ -228,13 +227,13 @@ h6 {
 }
 
 .btn-outline-sm:hover {
-    background-color: #252c38;
+    background-color: #2F2F2F;
     color: #ffffff;
     text-decoration: none;
 }
 
 .list .fas {
-    color: #594cda;
+    color: #3ED8E0;
     font-size: 0.75rem;
     line-height: 1.625rem;
 }
@@ -266,7 +265,7 @@ h6 {
 .form-control-textarea:focus + .label-control,
 .form-control-textarea.notEmpty + .label-control {
     top: 0.125rem;
-    color: #6b747b;
+    color: #7D7D7D;
     opacity: 1;
     font-size: 0.75rem;
     font-weight: 700;
@@ -282,7 +281,7 @@ h6 {
     border: 1px solid #d0d5e2;
     border-radius: 25px;
     background-color: #ffffff;
-    color: #6b747b;
+    color: #7D7D7D;
     font-size: 0.875rem;
     line-height: 1.875rem;
     transition: all 0.2s;
@@ -318,7 +317,7 @@ select {
     border: 1px solid #d0d5e2;
     border-radius: 4px;
     background-color: #ffffff;
-    color: #6b747b;
+    color: #7D7D7D;
     font-size: 0.875rem;
     line-height: 1.5rem;
     transition: all 0.2s;
@@ -351,10 +350,10 @@ input[type="checkbox"] {
     display: inline-block;
     width: 100%;
     height: 3.25rem;
-    border: 1px solid #594cda;
+    border: 1px solid #3ED8E0;
     border-radius: 32px;
-    background-color: #594cda;
-    color: #252c38;
+    background-color: #3ED8E0;
+    color: #2F2F2F;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 0;
@@ -363,9 +362,9 @@ input[type="checkbox"] {
 }
 
 .form-control-submit-button:hover {
-    border: 1px solid #252c38;
+    border: 1px solid #2F2F2F;
     background-color: transparent;
-    color: #252c38;
+    color: #2F2F2F;
 }
 
 /* Fade-move Animation For Details Lightbox - Magnific Popup */
@@ -416,7 +415,7 @@ input[type="checkbox"] {
 
 .navbar {
     position: relative;
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
     padding: 0.5rem 1rem;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -457,7 +456,7 @@ input[type="checkbox"] {
     padding-left: 1rem;
     overflow-y: auto;
     visibility: hidden;
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
     transition: visibility 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
@@ -473,8 +472,9 @@ input[type="checkbox"] {
     display: block;
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
-    color: #6b747b;
+    color: #7D7D7D;
     text-decoration: none;
+    line-height:
     line-height: 0.875rem;
     transition: all 0.2s ease;
 }
@@ -516,7 +516,7 @@ input[type="checkbox"] {
     font-size: 1rem;
     color: #212529;
     list-style: none;
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
     background-clip: padding-box;
     border-radius: 0.25rem;
     animation: fadeDropdown 0.2s; /* required for the fade animation */
@@ -546,7 +546,7 @@ input[type="checkbox"] {
     text-align: inherit;
     white-space: nowrap;
     background-color: transparent;
-    color: #6b747b;
+    color: #7D7D7D;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 0.875rem;
@@ -556,7 +556,7 @@ input[type="checkbox"] {
 .dropdown-item:hover,
 .dropdown-item:focus {
     text-decoration: none;
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
     color: #ff6e84;
 }
 
@@ -590,7 +590,7 @@ input[type="checkbox"] {
     padding: 3.125rem 1rem 2.125rem 1rem;
     border: none;
     border-radius: 16px;
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
 }
 
 .cards-1 .card-image {
@@ -636,7 +636,7 @@ input[type="checkbox"] {
 }
 
 .lightbox-basic .btn-solid-reg.mfp-close:hover {
-    color: #594cda;
+    color: #3ED8E0;
 }
 /* end of action Button */
 
@@ -792,7 +792,7 @@ input[type="checkbox"] {
 
 .cards-2 .card .card-title {
     margin-bottom: 1rem;
-    color: #eb427e;
+    color: #086972;
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.875rem;
@@ -851,7 +851,7 @@ input[type="checkbox"] {
     position: relative;
     width: 13.75rem;
     padding: 0.3125rem 0 0.3125rem 4.125rem;
-    background-color: #eb427e;
+    background-color: #086972;
     color: #ffffff;
     -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
     -ms-transform: rotate(45deg) translate3d(0, 0, 0);
@@ -945,7 +945,7 @@ a:hover.back-to-top {
 .ex-header {
     padding-top: 8.5rem;
     padding-bottom: 4rem;
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
 }
 
 .ex-basic-1 .list-unstyled .fas {
@@ -955,7 +955,7 @@ a:hover.back-to-top {
 
 .ex-basic-1 .text-box {
     padding: 1.25rem 1.25rem 0.5rem 1.25rem;
-    background-color: #f1f9fc;
+    background-color: #E0FBFC;
 }
 
 .ex-cards-1 .card {
@@ -1020,7 +1020,7 @@ a:hover.back-to-top {
     .navbar.top-nav-collapse {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
-        background-color: #f1f9fc;
+        background-color: #E0FBFC;
     }
 
     .offcanvas-collapse {
