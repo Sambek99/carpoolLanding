@@ -1,5 +1,6 @@
 'use strict';
 
+
 let fetchFakerData =  (url) => {
 
     return fetch(url)
