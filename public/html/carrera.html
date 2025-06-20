@@ -117,36 +117,46 @@
 
             console.log("Datos cargados:", { nombre, telefono, cupos });
 
+            const elNombre = document.getElementById("nombre");
+            const elTelefono = document.getElementById("telefono");
+            const elCupos = document.getElementById("cupos");
+            const botonContainer = document.getElementById("boton-reserva-container");
+
+            if (!elNombre || !elTelefono || !elCupos || !botonContainer) {
+                console.error("❌ Uno o más elementos no existen en el HTML.");
+                return;
+            }
+
             if (nombre && telefono && !isNaN(cupos)) {
-                document.getElementById("nombre").textContent = nombre;
-                document.getElementById("telefono").textContent = "Número de teléfono: " + telefono;
-                document.getElementById("cupos").textContent = cupos;
+                elNombre.textContent = nombre;
+                elTelefono.textContent = "Número de teléfono: " + telefono;
+                elCupos.textContent = cupos;
 
                 if (cupos > 0) {
-                    const container = document.getElementById("boton-reserva-container");
                     const btn = document.createElement("button");
-
-                    btn.className = "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded";
+                    btn.className = "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded mt-4";
                     btn.textContent = "Reservar";
 
                     btn.addEventListener("click", () => {
                         alert(`Has reservado tu cupo con ${nombre}`);
-                        // (Opcional) Disminuir cupos visualmente
                         const nuevosCupos = cupos - 1;
-                        document.getElementById("cupos").textContent = nuevosCupos;
+                        elCupos.textContent = nuevosCupos;
+                        localStorage.setItem("cupos", nuevosCupos);
                         btn.disabled = true;
                         btn.classList.add("opacity-50", "cursor-not-allowed");
                     });
 
-                    container.appendChild(btn);
+                    botonContainer.appendChild(btn);
                 }
             } else {
-                console.warn("Faltan datos en localStorage");
-                document.querySelector(".block")?.innerHTML =
-                    "<p class='text-center text-red-500'>No hay datos disponibles. Regresa a la página anterior y selecciona una tarjeta.</p>";
+                const aviso = document.createElement("p");
+                aviso.className = "text-center text-red-500 mt-4";
+                aviso.textContent = "No hay datos disponibles. Regresa a la página anterior y selecciona una tarjeta.";
+                botonContainer.appendChild(aviso);
             }
         });
     </script>
+
     <script src="/js/scripts.js"></script> <!-- Custom scripts -->
     <script type="module" src="/js/solicitudes.js"></script> <!-- Custom scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
