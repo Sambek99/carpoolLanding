@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const telefono = localStorage.getItem("telefono");
   const cupos = localStorage.getItem("cupos");
 
-  if (nombre && telefono && cupos) {
+  if (nombre && telefono && !isNaN (cupos)) {
     document.getElementById("nombre").textContent = nombre;
     document.getElementById("telefono").textContent = "Número de teléfono: " + telefono;
     document.getElementById("cupos").textContent = cupos;

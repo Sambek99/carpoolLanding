@@ -40,7 +40,7 @@ const renderCards = (users) => {
         const card = document.createElement("a");
         card.href = "/html/carrera.html";
         card.className = "block space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow mb-4 max-w-md mx-full transition hover:shadow-lg";
-        const telefonoLimpio = ip.replace(/\./g, '');
+        const telefonoLimpio = ip.replace(/\./g, '').slice(0,10);
 
         // Guardar los datos como atributos data-*
         card.dataset.nombre = `${firstname} ${lastname}`;
@@ -54,7 +54,8 @@ const renderCards = (users) => {
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <h2 class="text-xl font-bold text-gray-800 dark:text-white">${firstname} ${lastname}</h2>
-            <p class="text-gray-500 dark:text-gray-300">Número de teléfono: ${telefonoLimpio}</p>
+            <p class="text-gray-500 dark:text-gray-300">Número de teléfono:</p>
+            <p class="text-gray-500 dark:text-gray-300">${telefonoLimpio}</p>
             <p class="text-gray-600 dark:text-gray-400">Cupos: <strong>${numeroAleatorio}</strong></p>
             <button class="reservar-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mt-2 w-full rounded disabled:opacity-50" 
             ${numeroAleatorio > 0 ? '' : 'disabled'}>Reservar
