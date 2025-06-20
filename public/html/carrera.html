@@ -113,7 +113,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             const nombre = localStorage.getItem("nombre");
             const telefono = localStorage.getItem("telefono");
-            const cupos = parseInt(localStorage.getItem("cupos"));
+            const localCupos = parseInt(localStorage.getItem("cupos"));
 
             const reservas = JSON.parse(localStorage.getItem("reservas")) || {};
             const reserva = reservas[nombre];
@@ -123,40 +123,69 @@
             const elCupos = document.getElementById("cupos");
             const botonContainer = document.getElementById("boton-reserva-container");
 
-            if (!elNombre || !elTelefono || !elCupos || !botonContainer) return;
+            if (!nombre || !telefono || isNaN(localCupos)) {
+                elNombre.textContent = "Información no disponible";
+                return;
+            }
 
-            let cuposDisponibles = reserva ? reserva.cupos : cupos;
+            // Mostrar datos
             elNombre.textContent = nombre;
             elTelefono.textContent = "Número de teléfono: " + telefono;
+
+            // Obtener cupos desde reserva o localStorage
+            const cuposDisponibles = reserva?.cupos ?? localCupos;
             elCupos.textContent = cuposDisponibles;
 
+            // Si ya reservó, no permitir más acciones
+            if (reserva?.reservado) {
+                const btn = document.createElement("button");
+                btn.textContent = "Ya has reservado un cupo";
+                btn.className = "bg-blue-300 text-white font-bold py-2 px-6 rounded mt-4 w-full cursor-not-allowed opacity-50";
+                btn.disabled = true;
+                botonContainer.appendChild(btn);
+                return;
+            }
+
+            // Si no hay cupos
+            if (cuposDisponibles <= 0) {
+                const btn = document.createElement("button");
+                btn.textContent = "No hay cupos disponibles";
+                btn.className = "bg-gray-400 text-white font-bold py-2 px-6 rounded mt-4 w-full cursor-not-allowed opacity-50";
+                btn.disabled = true;
+                botonContainer.appendChild(btn);
+                return;
+            }
+
+            // Mostrar botón si hay cupos y aún no ha reservado
             const btn = document.createElement("button");
+            btn.textContent = "Reservar";
             btn.className = "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded mt-4 w-full";
 
-            if (reserva?.reservado) {
+            btn.addEventListener("click", () => {
+                const nuevosCupos = Math.max(0, cuposDisponibles - 1);
+
+                reservas[nombre] = {
+                    telefono,
+                    reservado: true,
+                    cupos: nuevosCupos
+                };
+
+                localStorage.setItem("reservas", JSON.stringify(reservas));
+                localStorage.setItem("cupos", nuevosCupos);
+
+                elCupos.textContent = nuevosCupos;
                 btn.textContent = "Ya has reservado un cupo";
                 btn.disabled = true;
                 btn.classList.add("opacity-50", "cursor-not-allowed");
-            } else {
-                btn.textContent = "Reservar";
-                btn.addEventListener("click", () => {
-                    reservas[nombre] = {
-                        telefono: telefono,
-                        reservado: true,
-                        cupos: cuposDisponibles - 1
-                    };
-                    localStorage.setItem("reservas", JSON.stringify(reservas));
-                    elCupos.textContent = cuposDisponibles - 1;
-                    btn.textContent = "Ya has reservado un cupo";
-                    btn.disabled = true;
-                    btn.classList.add("opacity-50", "cursor-not-allowed");
-                    alert(`Has reservado tu cupo con ${nombre}`);
-                });
-            }
+
+                alert(`Has reservado tu cupo con ${nombre}`);
+            });
 
             botonContainer.appendChild(btn);
         });
     </script>
+
+
 
 
     <script src="/js/scripts.js"></script> <!-- Custom scripts -->
