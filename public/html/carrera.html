@@ -115,47 +115,49 @@
             const telefono = localStorage.getItem("telefono");
             const cupos = parseInt(localStorage.getItem("cupos"));
 
-            console.log("Datos cargados:", { nombre, telefono, cupos });
+            const reservas = JSON.parse(localStorage.getItem("reservas")) || {};
+            const reserva = reservas[nombre];
 
             const elNombre = document.getElementById("nombre");
             const elTelefono = document.getElementById("telefono");
             const elCupos = document.getElementById("cupos");
             const botonContainer = document.getElementById("boton-reserva-container");
 
-            if (!elNombre || !elTelefono || !elCupos || !botonContainer) {
-                console.error("❌ Uno o más elementos no existen en el HTML.");
-                return;
-            }
+            if (!elNombre || !elTelefono || !elCupos || !botonContainer) return;
 
-            if (nombre && telefono && !isNaN(cupos)) {
-                elNombre.textContent = nombre;
-                elTelefono.textContent = "Número de teléfono: " + telefono;
-                elCupos.textContent = cupos;
+            let cuposDisponibles = reserva ? reserva.cupos : cupos;
+            elNombre.textContent = nombre;
+            elTelefono.textContent = "Número de teléfono: " + telefono;
+            elCupos.textContent = cuposDisponibles;
 
-                if (cupos > 0) {
-                    const btn = document.createElement("button");
-                    btn.className = "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded mt-4";
-                    btn.textContent = "Reservar";
+            const btn = document.createElement("button");
+            btn.className = "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded mt-4 w-full";
 
-                    btn.addEventListener("click", () => {
-                        alert(`Has reservado tu cupo con ${nombre}`);
-                        const nuevosCupos = cupos - 1;
-                        elCupos.textContent = nuevosCupos;
-                        localStorage.setItem("cupos", nuevosCupos);
-                        btn.disabled = true;
-                        btn.classList.add("opacity-50", "cursor-not-allowed");
-                    });
-
-                    botonContainer.appendChild(btn);
-                }
+            if (reserva?.reservado) {
+                btn.textContent = "Ya has reservado un cupo";
+                btn.disabled = true;
+                btn.classList.add("opacity-50", "cursor-not-allowed");
             } else {
-                const aviso = document.createElement("p");
-                aviso.className = "text-center text-red-500 mt-4";
-                aviso.textContent = "No hay datos disponibles. Regresa a la página anterior y selecciona una tarjeta.";
-                botonContainer.appendChild(aviso);
+                btn.textContent = "Reservar";
+                btn.addEventListener("click", () => {
+                    reservas[nombre] = {
+                        telefono: telefono,
+                        reservado: true,
+                        cupos: cuposDisponibles - 1
+                    };
+                    localStorage.setItem("reservas", JSON.stringify(reservas));
+                    elCupos.textContent = cuposDisponibles - 1;
+                    btn.textContent = "Ya has reservado un cupo";
+                    btn.disabled = true;
+                    btn.classList.add("opacity-50", "cursor-not-allowed");
+                    alert(`Has reservado tu cupo con ${nombre}`);
+                });
             }
+
+            botonContainer.appendChild(btn);
         });
     </script>
+
 
     <script src="/js/scripts.js"></script> <!-- Custom scripts -->
     <script type="module" src="/js/solicitudes.js"></script> <!-- Custom scripts -->
