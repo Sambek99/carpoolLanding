@@ -82,9 +82,70 @@
                 </div>
             </div>
         </nav>
-        <h1>Reservas</h1>
+        <p class="p-10 text-2xl font-bold">Reservas</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6"> 
+            <div
+                class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
+                <div class="w-full max-w-3xl mx-auto rounded-lg overflow-hidden shadow-lg">
+                    <iframe src="https://www.google.com/maps/embed?..." class="w-full h-40"></iframe>
+                </div>
+                <h2 id="nombre" class="text-xl font-bold text-gray-800 dark:text-white"></h2>
+                <p id="telefono" class="text-gray-500 dark:text-gray-300"></p>
+                <p id="cupos" class="text-gray-600 dark:text-gray-400">Cupos: <strong>${cupos}</strong></p>
+            </div>
+        </div>
+
     </header>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nombre = localStorage.getItem("nombre");
+            const telefono = localStorage.getItem("telefono");
+            const localCupos = parseInt(localStorage.getItem("cupos"));
+
+            const reservas = JSON.parse(localStorage.getItem("reservas")) || {};
+            const reserva = reservas[nombre];
+
+            const elNombre = document.getElementById("nombre");
+            const elTelefono = document.getElementById("telefono");
+            const elCupos = document.getElementById("cupos");
+            const botonContainer = document.getElementById("boton-reserva-container");
+
+            if (!nombre || !telefono || isNaN(localCupos)) {
+                elNombre.textContent = "Información no disponible";
+                return;
+            }
+
+            // Mostrar datos
+            elNombre.textContent = nombre;
+            elTelefono.textContent = "Número de teléfono: " + telefono;
+
+            // Obtener cupos desde reserva o localStorage
+            const cuposDisponibles = reserva?.cupos ?? localCupos;
+            elCupos.textContent = cuposDisponibles;
+
+            // Si ya reservó, no permitir más acciones
+            if (reserva?.reservado) {
+                const btn = document.createElement("button");
+                btn.textContent = "Ya has reservado un cupo";
+                btn.className = "bg-blue-300 text-white font-bold py-2 px-6 rounded mt-4 w-full cursor-not-allowed opacity-50";
+                btn.disabled = true;
+                botonContainer.appendChild(btn);
+                return;
+            }
+
+            // Si no hay cupos
+            if (cuposDisponibles <= 0) {
+                const btn = document.createElement("button");
+                btn.textContent = "No hay cupos disponibles";
+                btn.className = "bg-gray-400 text-white font-bold py-2 px-6 rounded mt-4 w-full cursor-not-allowed opacity-50";
+                btn.disabled = true;
+                botonContainer.appendChild(btn);
+                return;
+            }
+
+        });
+    </script>
 
     <script src="/js/scripts.js"></script> <!-- Custom scripts -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
